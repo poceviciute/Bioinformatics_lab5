@@ -1,6 +1,8 @@
 #question 1
 
-library(devtools)
+install.packages("devtools") 
+library(devtools) 
+install_github("mategarb/R.ROSETTA",force = TRUE) 
 library(R.ROSETTA)
 
 
@@ -23,3 +25,28 @@ paste("percentage of object in Autism = ",(as.numeric(object_counts)[2] / nrow(d
 
 #question 3
 autconDefault = rosetta(data)
+table_main = autconDefault$main
+
+quality = autconDefault$quality
+
+
+
+#cross validation is partition the data into equally sized subsets.
+#default cross validatin Rosetta applies 10 Fold.
+
+
+
+#What is the default reduction method? 
+#default is johnson 
+#it is used for reducts in a way to finding dependencies in the data.
+
+#What is the default method of discretization? 
+#Describe it shortly. How many discretization bins are calculated?
+#default method is equal frequene 
+
+
+autconDefault$quality$Accuracy.Mean
+a =autconDefault$main[(1:3),]
+a$PVAL < 0.05
+
+saveLineByLine(autconDefault$main,"rules_rj.txt")

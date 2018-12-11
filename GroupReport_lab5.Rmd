@@ -1,0 +1,67 @@
+---
+title: "Lab5"
+author: "Saman Zahid"
+date: "December 11, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+
+```{r}
+#install.packages("devtools")
+library(devtools)
+#install_github("mategarb/R.ROSETTA")
+library(R.ROSETTA)
+
+```
+
+## Question 2
+
+
+```{r pressure, echo=FALSE}
+
+View(autcon)
+decision_sum <- table(autcon$decision)
+
+```
+
+total number of features = 36 -1 = 35, since last one is class.
+
+
+### For distribution:
+```{r}
+
+control_ratio <- as.numeric(decision_sum[1])/146
+autism_ratio <- as.numeric(decision_sum[2])/146
+
+```
+
+Since controls and autism are nearly around 50% distributed thus the distribution is balanced
+
+
+```{r}
+autconDefault = rosetta(autcon)
+
+rules <- autconDefault$main
+quality <- autconDefault$quality
+quality
+
+```
+
+Part a - Cross validation: Partition the data into equally sized subsets and perform model assesment.
+**Rosetta performs 10 fold cross validation by default**
+
+Part b - "Johnson" is the default reduction method. Reducer is used to find the dependencies in data.
+
+Part c - The default method of discretization is **EqualFrequency**. It partitions the range of features a(x) into (n+1) intervals by placing cuts between features, so that each interval has the same number of objects. 
+The default number of bins is 3.
+
+Part d -
+
+```{r}
+paste("Accuracy of model : " , quality$Accuracy.Mean)
+```

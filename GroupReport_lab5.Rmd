@@ -1,6 +1,6 @@
 ---
-title: "Lab5"
-author: "Saman Zahid"
+title: "Bioinformatics Lab5"
+author: "Saman Zahid, Milda Poceviciute, Fanny Karelius, Rab Nawaz Jan Sher"
 date: "December 11, 2018"
 output: pdf_document
 ---
@@ -21,19 +21,20 @@ library(R.ROSETTA)
 
 ## Question 2
 
+Total number of features = 36 - 1 = 35, since last one is class.
+
+
+### Number of objects in each class.
 
 ```{r  echo=FALSE}
 
-print(autcon)
+#print(autcon)
 decision_sum <- table(autcon$decision)
 decision_sum
 
 ```
 
-total number of features = 36 -1 = 35, since last one is class.
-
-
-### For distribution:
+### Is distribution balanced?
 ```{r}
 
 control_ratio <- as.numeric(decision_sum[1])/146
@@ -53,21 +54,26 @@ quality
 
 ```
 
-Part a - Cross validation: Partition the data into equally sized subsets and perform model assesment.
+**Part a** 
+- Cross validation: Partition the data into equally sized subsets and perform model assesment.
+
 **Rosetta performs 10 fold cross validation by default**
 
-Part b - "Johnson" is the default reduction method. Reducer is used to find the dependencies in data.
+**Part b** 
+- "Johnson" is the default reduction method. Reducer is used to find the dependencies in data.
 
-Part c - The default method of discretization is **EqualFrequency**. It partitions the range of features a(x) into (n+1) intervals by placing cuts between features, so that each interval has the same number of objects. 
+**Part c** 
+- The default method of discretization is **EqualFrequency**. It partitions the range of features a(x) into (n+1) intervals by placing cuts between features, so that each interval has the same number of objects. 
+
 The default number of bins is 3.
 
-Part d
+**Part d**
 
 ```{r}
 paste("Accuracy of model : " , quality$Accuracy.Mean)
 ```
 
-Part e
+**Part e**
 
 ```{r}
 
@@ -128,6 +134,6 @@ Calcium dependent gene expression regulates brain development and if it is compr
 SAFARI database contains information about autism related genes. It can be seen that we have "COX2" and "TMLHE-AS1" appears in our autism network which are also identified in SAFARI database symbolized as "CUX2" and "TMLHE".
 
 
-
+#Appendix
 ```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
 ```

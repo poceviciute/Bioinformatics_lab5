@@ -22,10 +22,11 @@ library(R.ROSETTA)
 ## Question 2
 
 
-```{r pressure, echo=FALSE}
+```{r  echo=FALSE}
 
-View(autcon)
+print(autcon)
 decision_sum <- table(autcon$decision)
+decision_sum
 
 ```
 
@@ -93,9 +94,17 @@ Thus autism gets more significant rules.
 
 ## Question 5 and 6
 
+### Control Network
 ```{r}
-
+knitr::include_graphics('images/control.png')
 ```
+
+### Autism Network
+
+```{r}
+knitr::include_graphics('images/autism.png')
+```
+
 
 Controls:
 There are 80 rules in decision "control". The most significant nodes with highest number of connections are "MAP7", "PPOX" , "NPR2","234817_at" and "NCKAP5L". Out of these significant nodes, "MAP7" is overexpressed and "PPOX", "234817_at", "NCKAP5L" are underexpressed.
@@ -103,6 +112,22 @@ There are 80 rules in decision "control". The most significant nodes with highes
 Autism:
 There are 111 rules in deciion "autism". The most significant nodes with highest number of connections are "COX2","RHPN1","PSMG4","SCIN","MAP7". It should be noticed that "MAP7" is either underexpressed or have no change in autism while in control it was overexpressed.
 
+```{r}
+knitr::include_graphics('images/autism_caliaum_ion.PNG')
+```
+
+
+
+```{r}
+knitr::include_graphics('images/control_calcium_ion.PNG')
+```
+
+
 Calcium dependent gene expression regulates brain development and if it is compromised or develops abnormally, it might leads to autism. It can be observed that the calcium ion binding genes "SCIN","NCS1" and "CAPS2" have more densed network of connection in autism as compared to control.
 
 SAFARI database contains information about autism related genes. It can be seen that we have "COX2" and "TMLHE-AS1" appears in our autism network which are also identified in SAFARI database symbolized as "CUX2" and "TMLHE".
+
+
+
+```{r, ref.label=knitr::all_labels(),echo=TRUE,eval=FALSE}
+```

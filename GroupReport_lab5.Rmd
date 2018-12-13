@@ -35,14 +35,15 @@ decision_sum
 ```
 
 ### Is distribution balanced?
-```{r}
+```{r, }
 
 control_ratio <- as.numeric(decision_sum[1])/146
+control_ratio
 autism_ratio <- as.numeric(decision_sum[2])/146
-
+autism_ratio
 ```
 
-Since controls and autism are nearly around 50% distributed thus the distribution is balanced
+Since controls and autism are nearly make up 50% each, the distribution is balanced.
 
 
 ```{r}
@@ -55,7 +56,7 @@ quality
 ```
 
 **Part a** 
-- Cross validation: Partition the data into equally sized subsets and perform model assesment.
+- Cross validation: With cross-validation the data is partitioned into equally sized subsets. One subset is treated as the test data and the rest as training data to perform model assessment. 
 
 **Rosetta performs 10 fold cross validation by default**
 
@@ -116,7 +117,7 @@ Controls:
 There are 80 rules in decision "control". The most significant nodes with highest number of connections are "MAP7", "PPOX" , "NPR2","234817_at" and "NCKAP5L". Out of these significant nodes, "MAP7" is overexpressed and "PPOX", "234817_at", "NCKAP5L" are underexpressed.
 
 Autism:
-There are 111 rules in deciion "autism". The most significant nodes with highest number of connections are "COX2","RHPN1","PSMG4","SCIN","MAP7". It should be noticed that "MAP7" is either underexpressed or have no change in autism while in control it was overexpressed.
+There are 111 rules in decision "autism". The most significant nodes with highest number of connections are "COX2","RHPN1","PSMG4","SCIN","MAP7". It should be noticed that "MAP7" is either underexpressed or have no change in autism while in control it was overexpressed.
 
 ```{r}
 knitr::include_graphics('images/autism_caliaum_ion.PNG')
@@ -129,7 +130,7 @@ knitr::include_graphics('images/control_calcium_ion.PNG')
 ```
 
 
-Calcium dependent gene expression regulates brain development and if it is compromised or develops abnormally, it might leads to autism. It can be observed that the calcium ion binding genes "SCIN","NCS1" and "CAPS2" have more densed network of connection in autism as compared to control.
+Calcium dependent gene expression regulates brain development and if it is compromised or develops abnormally, it might leads to autism. It can be observed that the calcium ion binding genes "SCIN","NCS1" and "CAPS2" have more dense network of connection in autism as compared to control.
 
 SAFARI database contains information about autism related genes. It can be seen that we have "COX2" and "TMLHE-AS1" appears in our autism network which are also identified in SAFARI database symbolized as "CUX2" and "TMLHE".
 
